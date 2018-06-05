@@ -10,12 +10,28 @@ export class CourseComponent implements OnInit {
   private title:string = "List of courses"  
   private coursesList: string[];
   private coursesService: CoursesService;
+  private allowdToAdd: boolean = false;
+  private onAddCourseText = 'NO text'
+  private courseName: string = '';
 
-  constructor() {     
-      this.coursesService = new CoursesService();
-      this.coursesList = this.coursesService.getCoursesList();    
+  constructor(coursesService: CoursesService) {      
+    this.coursesList = coursesService.getCoursesList();    
+    setTimeout(
+      ()=>{
+        this.allowdToAdd = true;
+      }, 
+      2000
+    )
   }
   
   ngOnInit() {
+  }
+
+  public onClicked(){
+    this.onAddCourseText = "added a course" + this.courseName;
+  }
+
+  public onKeys(evt: Event){        
+    this.courseName = (<HTMLInputElement>evt.target).value;    
   }
 }
