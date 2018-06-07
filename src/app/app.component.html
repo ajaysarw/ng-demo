@@ -1,8 +1,63 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-header></app-header>
-<div style="text-align:center">  
-  <app-course></app-course> 
-  <div style="height:200px"></div>
+
+<div>
+  <app-header></app-header>
 </div>
-<app-help-links></app-help-links>
+
+
+
+<!-- <div style="text-align:center">  
+  <app-course></app-course>
+  <div style="height:20px"></div>
+</div>
+<div> 
+  Send message to Child
+<input type="text" #ptext (keyup) = "0">
+  <input type="text" [(ngModel)]="messageForChildComponent" >
+  <button (click)="send()"> SendToChild</button>
+</div>
+
+<div>
+  Received from child: {{ msgFromChildComponent }}
+</div>
+
+<br><br><br><br><br><br>
+<div style="text-align:center">  
+    
+  <app-servers 
+    (childEventHandler) = "msgFromChildComponent=$event"   
+    [msgForChildComponent]="msgForChildComponent">
+  </app-servers> 
+
+    <div style="height:200px"></div>
+  </div>
+ -->
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+      <div> 
+        <!-- <app-left-nav (eventHr) = "msgFromChildComponent=$event"> </app-left-nav>  -->
+        <app-left-nav (eventHr) = "modiResponse($event)"> </app-left-nav> 
+      </div>          
+      
+      <!-- <app-servers 
+      (childEventHandler) = "msgFromChildComponent=$event"   
+      [msgForChildComponent]="msgForChildComponent">
+    </app-servers> -->
+      
+        <div class="col-sm-8 text-left"> 
+            <h1>Welcome {{ msgFromChildComponent  }}</h1>
+            <p> {{ courseDetail }}</p>
+            <hr>
+            <h3>Test</h3>
+            <p>Lorem ipsum...</p>
+          </div>
+
+      
+      <div><app-right-nav></app-right-nav></div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
 

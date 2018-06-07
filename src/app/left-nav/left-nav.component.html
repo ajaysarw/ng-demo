@@ -1,0 +1,5 @@
+<div class="col-sm-2 sidenav">
+  <p *ngFor="let link of links">
+      <a (click)="sendToParent($event)">{{ link }} </a>
+  </p>
+</div>

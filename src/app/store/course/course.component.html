@@ -1,0 +1,43 @@
+<!-- 
+<!-- <div>
+    <input 
+    type="text" 
+    clsss="form-control"
+    (keyup)="onKeys($event)">
+    
+</div> -->
+  
+<hr>
+<!-- <div>  
+<div>
+    <input type="text" clsss="form-control" [(ngModel)] = "courseName">    
+</div>
+
+<hr>
+
+
+    <button class='btn btn-primary' [disabled]="!allowdToAdd" (click)="onCourseAdd()"> + </button>
+    <button class='btn btn-primary' (click)="clearCourseList()">  -</button>
+    <button class='btn btn-primary' (click)="refresCourseList()">() </button>
+</div> -->
+  
+  <div [ngStyle]="{backgroundColor:getColor()}" [ngClass]="{courseAdded: courseName != ''}"> 
+    .{{ onCourseAddText }} 
+</div>
+  
+   <h2>
+    {{ title }}
+  </h2>
+
+
+<!-- <div  *ngIf="!courseName" style="text-align:left"> -->
+  <div style="text-align:left">
+  <ul>
+    <li *ngFor="let course of coursesList">
+      {{ course }}
+    </li>
+  </ul>
+</div>
+
+<p *ngIf="courseName"> You just added :  {{ courseName }}</p>
+<p *ngIf="!courseName">You don't added any course</p> -->

@@ -1,0 +1,16 @@
+<hr>
+<hr>
+<p> Child Component </p>
+<div>
+  Recieved from Parent: 
+  <span> {{ ParentMessage }} </span>
+</div>
+
+
+<div style="text-align:left">
+  <input type="text" [(ngModel)]="messageForParent"> 
+
+
+  <button (click)="sendToParent()">AddToParent</button>
+</div>
+<hr>

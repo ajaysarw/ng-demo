@@ -11,27 +11,49 @@ export class CourseComponent implements OnInit {
   private coursesList: string[];
   private coursesService: CoursesService;
   private allowdToAdd: boolean = false;
-  private onAddCourseText = 'NO text'
+  private onCourseAddText = ''
   private courseName: string = '';
+  private messageForChildComponent = '';
 
-  constructor(coursesService: CoursesService) {      
-    this.coursesList = coursesService.getCoursesList();    
+
+  constructor(coursesService: CoursesService) {
+    this.coursesService = coursesService;
+    this.getCourseList();
     setTimeout(
       ()=>{
         this.allowdToAdd = true;
       }, 
-      2000
+      1000
     )
   }
   
   ngOnInit() {
   }
 
-  public onClicked(){
-    this.onAddCourseText = "added a course" + this.courseName;
+  public onCourseAdd(){
+    if (this.courseName) {
+     this.onCourseAddText = "added a course: " + this.courseName;
+      this.coursesList.push(this.courseName)
+    }
+  }
+
+  public clearCourseList(){    
+    this.coursesList = [];
+  }
+
+  public refresCourseList(){    
+    this.getCourseList();
   }
 
   public onKeys(evt: Event){        
     this.courseName = (<HTMLInputElement>evt.target).value;    
+  }
+
+  public getColor(){        
+    return this.onCourseAddText?"green":"red";
+  } 
+  
+  public getCourseList(){
+    this.coursesList = this.coursesService.getCoursesList();
   }
 }
